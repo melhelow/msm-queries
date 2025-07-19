@@ -12,7 +12,7 @@ task({ :sample_data => :environment}) do
   Director.delete_all
   Movie.delete_all
   Actor.delete_all
-  Character.delete_all
+  Charachter.delete_all
   
   # Insert all records from JSON
   Director.insert_all!(json_data["directors"])
@@ -24,8 +24,8 @@ task({ :sample_data => :environment}) do
   Actor.insert_all!(json_data["actors"])
   puts "Created #{Actor.count} actors"
 
-  Character.insert_all!(json_data["characters"])
-  puts "Created #{Character.count} characters"
+  Charachter.insert_all!(json_data["charachters"])
+  puts "Created #{Character.count} charachters"
 
   ActiveRecord::Base.connection.tables.each do |t|
     ActiveRecord::Base.connection.reset_pk_sequence!(t)
